@@ -12,23 +12,21 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     UserModel currentUser = user ?? Provider.of<ProfileModel>(context, listen: false).getDefaultUser();
     
-    return Scaffold(
+return Scaffold(
+      appBar: AppBar(
+        leading: Navigator.canPop(context)
+            ? IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () => Navigator.pop(context),  // pop current page
+              )
+            : null,  // disable back button when not applicable
+        title: Text(currentUser.username),
+      ),
       body: SafeArea(
         child: Stack(
           children: [
             // Background design
-            Positioned(
-              top: 20,
-              right: -70,
-              child: Container(
-                width: 220,
-                height: 220,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.blue.withOpacity(0.07),
-                ),
-              ),
-            ),
+     
             Positioned(
               bottom: 0,
               left: -50,
@@ -52,7 +50,12 @@ class ProfileView extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 80,
                       backgroundColor: Colors.grey[200],
-                      child: Icon(Icons.person, size: 100, color: Colors.grey[400]),
+                        backgroundImage: currentUser.profileImageUrl.isNotEmpty
+                            ? NetworkImage(currentUser.profileImageUrl)
+                            : null,
+                        child: currentUser.profileImageUrl.isNotEmpty
+                            ? null
+                            : Icon(Icons.person, size: 100, color: Colors.grey[400]),
                     ),
                   ),
                   SizedBox(height: 20),

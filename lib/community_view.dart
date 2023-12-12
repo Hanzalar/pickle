@@ -12,7 +12,6 @@ class CommunityView extends StatelessWidget {
       builder: (context, model, child) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Community'),
           ),
           body: ListView.builder(
             itemCount: model.posts.length,
