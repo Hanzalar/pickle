@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'score_model.dart';  // Update with your actual import path.
-import 'score_view.dart';  // Update with your actual import path.
+import 'score_model.dart';  
+import 'score_view.dart';  
 import 'profile_model.dart';
 import 'profile_view.dart';
 import 'community_model.dart';
