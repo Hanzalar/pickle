@@ -7,6 +7,8 @@ import 'community_model.dart';
 import 'community_view.dart';
 import 'checkin_model.dart';
 import 'checkin_view.dart';
+import 'performance_model.dart';
+import 'performance_view.dart';
 import 'package:provider/provider.dart';
 
 
@@ -15,6 +17,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => ScoreModel()),
+        ChangeNotifierProvider<PerformanceModel>(create: (context) => PerformanceModel()),
         ChangeNotifierProvider(create: (context) => ProfileModel()),
         ChangeNotifierProvider(create: (context) => CommunityModel()),
         ChangeNotifierProvider(create: (context) => CheckinModel()),
@@ -48,6 +51,7 @@ class _MyAppStateful extends State<MyAppStateful> {
   int _selectedPage = 0;
   final _pageOptions = [
     ScoreView(),
+    PerformanceView(),
     ProfileView(),
     CommunityView(),
     CheckinView(),
@@ -69,6 +73,10 @@ class _MyAppStateful extends State<MyAppStateful> {
           BottomNavigationBarItem(
             icon: Icon(Icons.scoreboard),
             label: 'Scoring',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.leaderboard),
+            label: 'Performance',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
