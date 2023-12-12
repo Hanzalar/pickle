@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'score_model.dart'; // Include the path as per your directory structure 
+import 'performance_model.dart';
 import 'package:provider/provider.dart';
 
 class ScoreView extends StatefulWidget {
@@ -10,6 +11,7 @@ class ScoreView extends StatefulWidget {
 class _ScoreViewState extends State<ScoreView> {
   int _selectedIndex = 0;
   ScoreModel? _scoreModel;
+  PerformanceModel? _performanceModel;
 
 
  @override
@@ -20,6 +22,7 @@ void didChangeDependencies() {
       _showWinningDialog(Provider.of<ScoreModel>(context, listen: false).winningTeam);
     });
   }
+  _performanceModel = Provider.of<PerformanceModel>(context);
 }
 
 void _showWinningDialog(String message) {
