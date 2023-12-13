@@ -30,5 +30,6 @@ To support additional languages, please visit the tutorial on
 apps](https://flutter.dev/docs/development/accessibility-and-localization/internationalization)
 
 ## Run App
+make sure to run it through a phone emulator , and not a web browser.
 cd into the pickle directory
 `flutter run`
